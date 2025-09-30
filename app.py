@@ -18,11 +18,11 @@ def load_model():
     """Load the trained model and preprocessing objects"""
     global model, scaler, target_encoder, label_encoders, feature_columns
     try:
-        model = joblib.load('D:\\Decryptogen\\personality_model.pkl')
-        scaler = joblib.load('D:\\Decryptogen\\scaler.pkl')
-        target_encoder = joblib.load('D:\\Decryptogen\\target_encoder.pkl')
-        label_encoders = joblib.load('D:\\Decryptogen\\label_encoders.pkl')
-        feature_columns = joblib.load('D:\\Decryptogen\\feature_columns.pkl')
+        model = joblib.load('D:\\Decryptogen\\models\\personality_model.pkl')
+        scaler = joblib.load('D:\\Decryptogen\\models\\scaler.pkl')
+        target_encoder = joblib.load('D:\\Decryptogen\\models\\target_encoder.pkl')
+        label_encoders = joblib.load('D:\\Decryptogen\\models\\label_encoders.pkl')
+        feature_columns = joblib.load('D:\\Decryptogen\\models\\feature_columns.pkl')
         print("All model components loaded successfully!")
         return True
     except Exception as e:
@@ -177,4 +177,5 @@ def reload_model():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+
     app.run(debug=False, host='0.0.0.0', port=port)
